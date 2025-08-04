@@ -15,6 +15,10 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; /* Light gray background */
         }
+        /* Hides sections that are not active */
+        .content-section:not(.active) {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -25,59 +29,57 @@
             <a href="#" class="text-2xl font-bold text-blue-800">
                 FCSC Recruitment Portal
             </a>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6 font-medium">
-                    <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a></li>
-                    <li><a href="#" class="text-blue-600 font-bold border-b-2 border-blue-600">Vacancies</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">About Us</a></li>
-                    <li><a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a></li>
+            <nav>
+                <ul class="flex space-x-4 md:space-x-6 font-medium items-center">
+                    <li><a href="#" data-page="vacancies" class="nav-link text-blue-600 font-bold border-b-2 border-blue-600">Vacancies</a></li>
+                    <li><a href="#" data-page="register" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Register</a></li>
+                    <li><a href="#" class="bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-full hover:bg-blue-700 transition-colors">Login</a></li>
                 </ul>
             </nav>
-            <a href="#" class="bg-blue-600 text-white font-medium py-2 px-6 rounded-full hover:bg-blue-700 transition-colors">
-                Login
-            </a>
         </div>
     </header>
 
-    <!-- Main content section -->
+    <!-- Main content container -->
     <main class="container mx-auto p-6 md:p-10">
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Available Vacancies</h1>
-        <p class="text-gray-600 mb-8 md:mb-12">Search and apply for the latest government job opportunities.</p>
-
-        <!-- Search and filter section -->
-        <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <form id="filter-form" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-                <div class="col-span-1 md:col-span-2">
-                    <label for="keyword" class="block text-sm font-medium text-gray-700">Keyword</label>
-                    <input type="text" id="keyword" name="keyword" placeholder="Search by title or description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
-                </div>
-                <div>
-                    <label for="agency" class="block text-sm font-medium text-gray-700">Agency</label>
-                    <select id="agency" name="agency" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
-                        <option value="">All Agencies</option>
-                        <option value="Ministry of Finance">Ministry of Finance</option>
-                        <option value="Federal Ministry of Health">Federal Ministry of Health</option>
-                        <option value="Ministry of Power">Ministry of Power</option>
-                        <option value="National Bureau of Statistics">National Bureau of Statistics</option>
-                        <option value="Federal Ministry of Education">Federal Ministry of Education</option>
-                        <option value="Office of the Head of Civil Service">Office of the Head of Civil Service</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="qualification" class="block text-sm font-medium text-gray-700">Qualification</label>
-                    <select id="qualification" name="qualification" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
-                        <option value="">All Qualifications</option>
-                        <option value="Degree">Degree</option>
-                        <option value="HND">HND</option>
-                        <option value="MSc/PhD">MSc/PhD</option>
-                        <option value="SSCE/NCE">SSCE/NCE</option>
-                    </select>
-                </div>
-            </form>
-        </section>
 
         <!-- Vacancy list section -->
-        <section>
+        <section id="vacancies" class="content-section active">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Available Vacancies</h1>
+            <p class="text-gray-600 mb-8 md:mb-12">Search and apply for the latest government job opportunities.</p>
+
+            <!-- Search and filter section -->
+            <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <form id="filter-form" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    <div class="col-span-1 md:col-span-2">
+                        <label for="keyword" class="block text-sm font-medium text-gray-700">Keyword</label>
+                        <input type="text" id="keyword" name="keyword" placeholder="Search by title or description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                    </div>
+                    <div>
+                        <label for="agency" class="block text-sm font-medium text-gray-700">Agency</label>
+                        <select id="agency" name="agency" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                            <option value="">All Agencies</option>
+                            <option value="Ministry of Finance">Ministry of Finance</option>
+                            <option value="Federal Ministry of Health">Federal Ministry of Health</option>
+                            <option value="Ministry of Power">Ministry of Power</option>
+                            <option value="National Bureau of Statistics">National Bureau of Statistics</option>
+                            <option value="Federal Ministry of Education">Federal Ministry of Education</option>
+                            <option value="Office of the Head of Civil Service">Office of the Head of Civil Service</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="qualification" class="block text-sm font-medium text-gray-700">Qualification</label>
+                        <select id="qualification" name="qualification" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                            <option value="">All Qualifications</option>
+                            <option value="Degree">Degree</option>
+                            <option value="HND">HND</option>
+                            <option value="MSc/PhD">MSc/PhD</option>
+                            <option value="SSCE/NCE">SSCE/NCE</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Vacancy list container -->
             <div id="vacancy-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Vacancy cards will be injected here by JavaScript -->
             </div>
@@ -86,6 +88,58 @@
                 <p>Please try adjusting your search filters.</p>
             </div>
         </section>
+
+        <!-- New: Applicant Registration Section -->
+        <section id="register" class="content-section">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Create an Account</h1>
+            <p class="text-gray-600 mb-8 md:mb-12">Fill out the form below to register and start your application.</p>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <form id="registration-form" class="space-y-6">
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                        <div>
+                            <label for="nin" class="block text-sm font-medium text-gray-700">National Identification Number (NIN)</label>
+                            <input type="text" id="nin" name="nin" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                    </div>
+
+                    <!-- Password Fields -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" id="password" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                        <div>
+                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">Create My Account</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer section -->
@@ -96,8 +150,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript for filtering functionality -->
+    <!-- JavaScript for navigation and filtering functionality -->
     <script>
+        // --- Vacancy Data and Filtering Logic (existing code) ---
         const vacancies = [
             {
                 title: "Planning Officer II, SGL 08",
@@ -157,7 +212,7 @@
             }
         ];
 
-        // Get DOM elements
+        // Get DOM elements for filtering
         const keywordInput = document.getElementById('keyword');
         const agencySelect = document.getElementById('agency');
         const qualificationSelect = document.getElementById('qualification');
@@ -228,11 +283,56 @@
         agencySelect.addEventListener('change', filterVacancies);
         qualificationSelect.addEventListener('change', filterVacancies);
 
+        // --- New: Page Navigation Logic ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        const showPage = (pageId) => {
+            // Remove active class from all sections and nav links
+            contentSections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('text-blue-600', 'font-bold', 'border-b-2', 'border-blue-600'));
+            navLinks.forEach(link => link.classList.add('text-gray-600', 'hover:text-blue-600'));
+
+            // Add active class to the selected section and nav link
+            document.getElementById(pageId).classList.add('active');
+            const activeNavLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+            if (activeNavLink) {
+                activeNavLink.classList.remove('text-gray-600', 'hover:text-blue-600');
+                activeNavLink.classList.add('text-blue-600', 'font-bold', 'border-b-2', 'border-blue-600');
+            }
+        };
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = e.target.dataset.page;
+                if (pageId) {
+                    showPage(pageId);
+                }
+            });
+        });
+
+        // --- New: Registration Form Submission Handling ---
+        const registrationForm = document.getElementById('registration-form');
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real application, you would send this data to a server.
+            // For this demo, we'll just log the form data to the console.
+            const formData = new FormData(registrationForm);
+            const data = Object.fromEntries(formData.entries());
+            console.log("Registration Form Submitted:", data);
+
+            // You could display a success message here instead of an alert.
+            alert("Thank you for registering! This is a demo submission.");
+
+            // Optionally, reset the form after submission
+            registrationForm.reset();
+        });
+
         // Initial render of all vacancies when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             renderVacancies(vacancies);
         });
-
     </script>
 </body>
 </html>
