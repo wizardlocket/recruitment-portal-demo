@@ -30,10 +30,12 @@
                 Lower Benue River Basin Developement Authority: Recruitment Portal
             </a>
             <nav>
-                <ul class="flex space-x-4 md:space-x-6 font-medium items-center">
+                <ul id="main-nav" class="flex space-x-4 md:space-x-6 font-medium items-center">
                     <li><a href="#" data-page="vacancies" class="nav-link text-blue-600 font-bold border-b-2 border-blue-600">Vacancies</a></li>
                     <li><a href="#" data-page="register" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">Register</a></li>
-                    <li><a href="#" class="bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-full hover:bg-blue-700 transition-colors">Login</a></li>
+                    <li><a href="#" data-page="login" class="nav-link bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-full hover:bg-blue-700 transition-colors">Login</a></li>
+                    <li id="account-nav" class="hidden"><a href="#" data-page="account" class="nav-link text-gray-600 hover:text-blue-600 transition-colors">My Account</a></li>
+                    <li id="logout-nav" class="hidden"><a href="#" data-page="logout" class="nav-link bg-red-600 text-white font-medium py-2 px-4 md:px-6 rounded-full hover:bg-red-700 transition-colors">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,15 +57,13 @@
                         <input type="text" id="keyword" name="keyword" placeholder="Search by title or description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
                     </div>
                     <div>
-                        <label for="agency" class="block text-sm font-medium text-gray-700">Agency</label>
-                        <select id="agency" name="agency" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
-                            <option value="">All Agencies</option>
-                            <option value="Ministry of Finance">Ministry of Finance</option>
-                            <option value="Federal Ministry of Health">Federal Ministry of Health</option>
-                            <option value="Ministry of Power">Ministry of Power</option>
-                            <option value="National Bureau of Statistics">National Bureau of Statistics</option>
-                            <option value="Federal Ministry of Education">Federal Ministry of Education</option>
-                            <option value="Office of the Head of Civil Service">Office of the Head of Civil Service</option>
+                        <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+                        <select id="department" name="department" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2">
+                            <option value="">All Departments</option>
+                            <option value="Water Resources & Irrigation">Water Resources & Irrigation</option>
+                            <option value="Agricultural Development">Agricultural Development</option>
+                            <option value="Finance & Accounts">Finance & Accounts</option>
+                            <option value="Administration">Administration</option>
                         </select>
                     </div>
                     <div>
@@ -89,7 +89,7 @@
             </div>
         </section>
 
-        <!-- New: Applicant Registration Section -->
+        <!-- Applicant Registration Section -->
         <section id="register" class="content-section">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Create an Account</h1>
             <p class="text-gray-600 mb-8 md:mb-12">Fill out the form below to register and start your application.</p>
@@ -111,8 +111,8 @@
                     <!-- Contact Information -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                            <label for="email-reg" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email-reg" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
@@ -123,8 +123,8 @@
                     <!-- Password Fields -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                            <input type="password" id="password" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                            <label for="password-reg" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" id="password-reg" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
                         </div>
                         <div>
                             <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
@@ -140,6 +140,48 @@
             </div>
         </section>
 
+        <!-- New: Login Section -->
+        <section id="login" class="content-section">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Login to Your Account</h1>
+            <p class="text-gray-600 mb-8 md:mb-12">Please enter your credentials to access your portal.</p>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-md mx-auto">
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label for="email-login" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="email-login" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                    </div>
+                    <div>
+                        <label for="password-login" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password-login" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">Log In</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- New: Account View Section -->
+        <section id="account" class="content-section">
+            <h1 id="welcome-message" class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Welcome, Applicant!</h1>
+            <p class="text-gray-600 mb-8 md:mb-12">Here is your account dashboard. You can manage your profile and applications here.</p>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl mx-auto">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Profile Information</h2>
+                <div class="space-y-4 text-gray-700">
+                    <p><strong>Full Name:</strong> <span id="account-name">John Doe</span></p>
+                    <p><strong>Email:</strong> <span id="account-email">john.doe@example.com</span></p>
+                    <p><strong>NIN:</strong> <span id="account-nin">12345678901</span></p>
+                    <p><strong>Status:</strong> <span class="text-green-600 font-medium">Application Active</span></p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <button id="logout-button" class="bg-red-600 text-white font-medium py-3 px-8 rounded-md hover:bg-red-700 transition-colors">Logout</button>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer section -->
@@ -150,13 +192,17 @@
         </div>
     </footer>
 
-    <!-- JavaScript for navigation and filtering functionality -->
+    <!-- JavaScript for navigation and functionality -->
     <script>
-        // --- Vacancy Data and Filtering Logic (existing code) ---
+        // Global state for user authentication
+        let isLoggedIn = false;
+        let userData = {};
+
+        // --- Vacancy Data and Filtering Logic ---
         const vacancies = [
             {
                 title: "Planning Officer II, SGL 08",
-                agency: "Office of the Head of Civil Service",
+                department: "Water Resources & Irrigation",
                 description: "Candidates must possess a degree in Economics or Statistics and must have completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "Degree",
                 date: "2025-08-30",
@@ -164,7 +210,7 @@
             },
             {
                 title: "Senior Statistician, SGL 10",
-                agency: "National Bureau of Statistics",
+                department: "Administration",
                 description: "Candidates must possess Ph.D in Statistics, Demography or Mathematics with Statistics; or MSc plus a minimum of four (4) years post NYSC cognate experience.",
                 qualification: "MSc/PhD",
                 date: "2025-09-15",
@@ -172,7 +218,7 @@
             },
             {
                 title: "Administrative Officer I, SGL 09",
-                agency: "Office of the Head of Civil Service",
+                department: "Administration",
                 description: "Candidate must possess a Master's degree in Social Sciences or Humanities and completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "MSc/PhD",
                 date: "2025-08-25",
@@ -180,32 +226,32 @@
             },
             {
                 title: "Biomedical Engineer, SGL 09",
-                agency: "Federal Ministry of Health",
+                department: "Water Resources & Irrigation",
                 description: "Candidates must possess a degree in Biomedical Engineering and must have completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "Degree",
                 date: "2025-09-05",
                 status: "Open"
             },
             {
-                title: "Lands Officer II, GL 08",
-                agency: "Federal Ministry of Housing & Urban Development",
-                description: "Candidates must possess a degree in Estate Management and completed the National Youth Service or obtained certificate of exemption.",
+                title: "Agronomist II, GL 08",
+                department: "Agricultural Development",
+                description: "Candidates must possess a degree in Agronomy or a related field and completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "Degree",
                 date: "2025-08-28",
                 status: "Open"
             },
             {
                 title: "Higher Instructor, SGL 08",
-                agency: "Federal Ministry of Education",
+                department: "Water Resources & Irrigation",
                 description: "Candidates must possess HND in relevant subject plus PGDE or NCE from a recognized institution and must have completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "HND",
                 date: "2025-09-10",
                 status: "Open"
             },
             {
-                title: "State Counsel, SGL 09",
-                agency: "Federal Ministry of Justice",
-                description: "Candidates must possess a degree in Law (LL.B), legally qualified to practice as a Barrister and Solicitor in Nigeria and must have completed the National Youth Service or obtained certificate of exemption.",
+                title: "Financial Analyst, SGL 09",
+                department: "Finance & Accounts",
+                description: "Candidates must possess a degree in Finance or Accounting, and completed the National Youth Service or obtained certificate of exemption.",
                 qualification: "Degree",
                 date: "2025-09-20",
                 status: "Open"
@@ -214,7 +260,7 @@
 
         // Get DOM elements for filtering
         const keywordInput = document.getElementById('keyword');
-        const agencySelect = document.getElementById('agency');
+        const departmentSelect = document.getElementById('department');
         const qualificationSelect = document.getElementById('qualification');
         const vacancyList = document.getElementById('vacancy-list');
         const noResults = document.getElementById('no-results');
@@ -240,7 +286,7 @@
                                 <h3 class="text-xl font-semibold text-blue-800">${job.title}</h3>
                                 <span class="text-xs font-medium px-2 py-1 rounded-full ${statusColor}">${job.status}</span>
                             </div>
-                            <p class="text-sm text-gray-500 mb-2">${job.agency}</p>
+                            <p class="text-sm text-gray-500 mb-2">${job.department}</p>
                             <p class="text-sm text-gray-700 mb-4">${job.description}</p>
                             <div class="flex justify-between items-center text-sm text-gray-500">
                                 <div class="flex items-center">
@@ -261,7 +307,7 @@
         // Function to filter vacancies based on form inputs
         const filterVacancies = () => {
             const keyword = keywordInput.value.toLowerCase();
-            const agency = agencySelect.value;
+            const department = departmentSelect.value;
             const qualification = qualificationSelect.value;
 
             const filtered = vacancies.filter(job => {
@@ -269,10 +315,10 @@
                     job.title.toLowerCase().includes(keyword) ||
                     job.description.toLowerCase().includes(keyword)
                 );
-                const matchesAgency = agency === "" || job.agency === agency;
+                const matchesDepartment = department === "" || job.department === department;
                 const matchesQualification = qualification === "" || job.qualification === qualification;
 
-                return matchesKeyword && matchesAgency && matchesQualification;
+                return matchesKeyword && matchesDepartment && matchesQualification;
             });
 
             renderVacancies(filtered);
@@ -280,58 +326,125 @@
 
         // Add event listeners to trigger filtering on input change
         keywordInput.addEventListener('input', filterVacancies);
-        agencySelect.addEventListener('change', filterVacancies);
+        departmentSelect.addEventListener('change', filterVacancies);
         qualificationSelect.addEventListener('change', filterVacancies);
 
-        // --- New: Page Navigation Logic ---
+        // --- Page Navigation and State Management ---
         const navLinks = document.querySelectorAll('.nav-link');
         const contentSections = document.querySelectorAll('.content-section');
+        const loginForm = document.getElementById('login-form');
+        const registrationForm = document.getElementById('registration-form');
+        const logoutButton = document.getElementById('logout-button');
+        const mainNav = document.getElementById('main-nav');
+
+        const updateNav = () => {
+            const registerLink = mainNav.querySelector('[data-page="register"]');
+            const loginLink = mainNav.querySelector('[data-page="login"]');
+            const accountNav = document.getElementById('account-nav');
+            const logoutNav = document.getElementById('logout-nav');
+
+            if (isLoggedIn) {
+                registerLink.parentElement.classList.add('hidden');
+                loginLink.parentElement.classList.add('hidden');
+                accountNav.classList.remove('hidden');
+                logoutNav.classList.remove('hidden');
+            } else {
+                registerLink.parentElement.classList.remove('hidden');
+                loginLink.parentElement.classList.remove('hidden');
+                accountNav.classList.add('hidden');
+                logoutNav.classList.add('hidden');
+            }
+        };
 
         const showPage = (pageId) => {
             // Remove active class from all sections and nav links
             contentSections.forEach(section => section.classList.remove('active'));
             navLinks.forEach(link => link.classList.remove('text-blue-600', 'font-bold', 'border-b-2', 'border-blue-600'));
-            navLinks.forEach(link => link.classList.add('text-gray-600', 'hover:text-blue-600'));
+            navLinks.forEach(link => {
+                // Keep the Login/Logout button styled differently
+                if (!link.classList.contains('bg-blue-600') && !link.classList.contains('bg-red-600')) {
+                    link.classList.add('text-gray-600', 'hover:text-blue-600');
+                }
+            });
 
             // Add active class to the selected section and nav link
             document.getElementById(pageId).classList.add('active');
             const activeNavLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-            if (activeNavLink) {
+            if (activeNavLink && !activeNavLink.classList.contains('bg-blue-600') && !activeNavLink.classList.contains('bg-red-600')) {
                 activeNavLink.classList.remove('text-gray-600', 'hover:text-blue-600');
                 activeNavLink.classList.add('text-blue-600', 'font-bold', 'border-b-2', 'border-blue-600');
             }
+
+            // Handle special logic for the account page
+            if (pageId === 'account') {
+                document.getElementById('welcome-message').textContent = `Welcome, ${userData.fullName}!`;
+                document.getElementById('account-name').textContent = userData.fullName;
+                document.getElementById('account-email').textContent = userData.email;
+                document.getElementById('account-nin').textContent = userData.nin;
+            }
         };
 
+        // Event listener for navigation links
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pageId = e.target.dataset.page;
-                if (pageId) {
+                if (pageId === 'logout') {
+                    isLoggedIn = false;
+                    userData = {};
+                    updateNav();
+                    showPage('vacancies');
+                } else if (pageId) {
                     showPage(pageId);
                 }
             });
         });
 
-        // --- New: Registration Form Submission Handling ---
-        const registrationForm = document.getElementById('registration-form');
+        // Registration form submission handler
         registrationForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // In a real application, you would send this data to a server.
-            // For this demo, we'll just log the form data to the console.
             const formData = new FormData(registrationForm);
             const data = Object.fromEntries(formData.entries());
             console.log("Registration Form Submitted:", data);
-
-            // You could display a success message here instead of an alert.
             alert("Thank you for registering! This is a demo submission.");
-
-            // Optionally, reset the form after submission
             registrationForm.reset();
         });
 
-        // Initial render of all vacancies when the page loads
+        // Login form submission handler
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real app, this would validate credentials and fetch user data.
+            // For this demo, we'll just simulate a successful login with dummy data.
+            const email = document.getElementById('email-login').value;
+            const password = document.getElementById('password-login').value;
+
+            // Simple demo validation
+            if (email && password) {
+                isLoggedIn = true;
+                userData = {
+                    fullName: "John Doe",
+                    email: email,
+                    nin: "12345678901"
+                };
+                updateNav();
+                showPage('account');
+            } else {
+                alert("Please enter both email and password.");
+            }
+        });
+
+        // Logout button handler
+        logoutButton.addEventListener('click', (e) => {
+            isLoggedIn = false;
+            userData = {};
+            updateNav();
+            showPage('vacancies');
+        });
+
+        // Initial setup
         document.addEventListener('DOMContentLoaded', () => {
             renderVacancies(vacancies);
+            updateNav();
         });
     </script>
 </body>
